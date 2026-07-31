@@ -1,44 +1,62 @@
-import { renderHook, act } from '@testing-library/react-native';
+import { act, renderHook } from '@testing-library/react-native';
 import { useCounter } from '../../src/hooks/useCounter';
 
-describe('useCounter', () => {
-  it('inicia con el valor por defecto (0)', async () => {
-    const { result } = await renderHook(() => useCounter());
-    expect(result.current.count).toBe(0);
-  });
+describe('useCounter pruebas adicionales', () => {
 
-  it('inicia con el valor proporcionado', async () => {
-    const { result } = await renderHook(() => useCounter(10));
-    expect(result.current.count).toBe(10);
-  });
-
-  it('incrementa el contador en 1', async () => {
+  it('incrementa correctamente después de varias llamadas', async () => {
     const { result } = await renderHook(() => useCounter());
+
     await act(() => {
       result.current.increment();
+      result.current.increment();
+      result.current.increment();
     });
-    expect(result.current.count).toBe(1);
+
+    expect(result.current.count).toBe(3);
   });
 
-  it('decrementa el contador en 1', async () => {
-    const { result } = await renderHook(() => useCounter(5));
+
+  it('permite decrementar desde cero', async () => {
+    const { result } = await renderHook(() => useCounter());
+
     await act(() => {
       result.current.decrement();
     });
-    expect(result.current.count).toBe(4);
+
+    expect(result.current.count).toBe(-1);
   });
 
-  it('reinicia el contador al valor inicial', async () => {
-    const { result } = await renderHook(() => useCounter(10));
+
+  it('reinicia correctamente después de varios cambios', async () => {
+    const { result } = await renderHook(() => useCounter(3));
+
     await act(() => {
       result.current.increment();
       result.current.increment();
+      result.current.decrement();
     });
-    expect(result.current.count).toBe(12);
+
+    expect(result.current.count).toBe(4);
 
     await act(() => {
       result.current.reset();
     });
-    expect(result.current.count).toBe(10);
+
+    expect(result.current.count).toBe(3);
   });
+
+
+  it('mantiene el estado correcto después de múltiples operaciones', async () => {
+    const { result } = await renderHook(() => useCounter());
+
+    await act(() => {
+      result.current.increment();
+      result.current.increment();
+      result.current.decrement();
+      result.current.increment();
+    });
+
+    expect(result.current.count).toBe(2);
+  });
+
 });

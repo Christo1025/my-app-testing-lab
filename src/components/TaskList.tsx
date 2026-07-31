@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { Task } from '../types';
 import { TaskCard } from './TaskCard';
 
@@ -10,18 +10,30 @@ interface TaskListProps {
 
 export function TaskList({ tasks, onDelete = () => {} }: TaskListProps) {
   if (tasks.length === 0) {
-    return <Text className="py-6 text-center text-base text-gray-500">No hay tareas aún</Text>;
+    return (
+      <Text testID="empty-message">
+        No hay tareas aún
+      </Text>
+    );
   }
 
   return (
     <View>
-      <Text className="mb-2 text-sm font-medium text-gray-500">
-        {tasks.length === 1 ? '1 tarea' : `${tasks.length} tareas`}
+      <Text testID="task-counter">
+        {tasks.length === 1
+          ? '1 tarea'
+          : `${tasks.length} tareas`}
       </Text>
+
       <FlatList
         data={tasks}
-        keyExtractor={(t) => t.id}
-        renderItem={({ item }) => <TaskCard task={item} onDelete={onDelete} />}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <TaskCard
+            task={item}
+            onDelete={onDelete}
+          />
+        )}
       />
     </View>
   );

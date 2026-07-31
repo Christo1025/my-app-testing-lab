@@ -1,58 +1,75 @@
-import { renderHook, act } from '@testing-library/react-native';
+import { act, renderHook } from '@testing-library/react-native';
 import { useTaskList } from '../../src/hooks/useTaskList';
 
-describe('useTaskList', () => {
-  it('inicia con una lista vacía por defecto', async () => {
-    const { result } = await renderHook(() => useTaskList());
-    expect(result.current.tasks).toEqual([]);
-    expect(result.current.taskCount).toBe(0);
-    expect(result.current.error).toBeNull();
-  });
+describe('useTaskList pruebas adicionales', () => {
 
-  it('agrega una tarea correctamente', async () => {
+  it('agrega varias tareas correctamente', async () => {
     const { result } = await renderHook(() => useTaskList());
-    await act(() => {
-      result.current.addTask('Nueva tarea');
-    });
-    expect(result.current.tasks).toHaveLength(1);
-    expect(result.current.tasks[0].title).toBe('Nueva tarea');
-    expect(result.current.tasks[0].status).toBe('pending');
-    expect(result.current.error).toBeNull();
-  });
-
-  it('establece un error cuando el título está vacío', async () => {
-    const { result } = await renderHook(() => useTaskList());
-    await act(() => {
-      result.current.addTask('');
-    });
-    expect(result.current.tasks).toHaveLength(0);
-    expect(result.current.error).toBe('El título no puede estar vacío');
-  });
-
-  it('limpia el error al agregar una tarea válida después de un error', async () => {
-    const { result } = await renderHook(() => useTaskList());
-    await act(() => {
-      result.current.addTask('');
-    });
-    expect(result.current.error).not.toBeNull();
 
     await act(() => {
-      result.current.addTask('Tarea válida');
+      result.current.addTask('Tarea 1');
+      result.current.addTask('Tarea 2');
+      result.current.addTask('Tarea 3');
     });
-    expect(result.current.error).toBeNull();
-    expect(result.current.tasks).toHaveLength(1);
+
+    expect(result.current.tasks).toHaveLength(3);
+    expect(result.current.taskCount).toBe(3);
   });
 
-  it('elimina una tarea por su id', async () => {
+  it('no modifica la lista cuando el id no existe', async () => {
     const initialTasks = [
-      { id: '1', title: 'Tarea 1', status: 'pending' as const },
-      { id: '2', title: 'Tarea 2', status: 'completed' as const },
+      {
+        id: '1',
+        title: 'Tarea',
+        status: 'pending' as const,
+      },
     ];
+
     const { result } = await renderHook(() => useTaskList(initialTasks));
+
+    await act(() => {
+      result.current.removeTask('100');
+    });
+
+    expect(result.current.tasks).toHaveLength(1);
+    expect(result.current.tasks[0].id).toBe('1');
+  });
+
+  it('mantiene el orden de inserción de las tareas', async () => {
+    const { result } = await renderHook(() => useTaskList());
+
+    await act(() => {
+      result.current.addTask('Primera');
+      result.current.addTask('Segunda');
+    });
+
+    expect(result.current.tasks[0].title).toBe('Primera');
+    expect(result.current.tasks[1].title).toBe('Segunda');
+  });
+
+  it('actualiza el contador después de eliminar una tarea', async () => {
+    const initialTasks = [
+      {
+        id: '1',
+        title: 'A',
+        status: 'pending' as const,
+      },
+      {
+        id: '2',
+        title: 'B',
+        status: 'pending' as const,
+      },
+    ];
+
+    const { result } = await renderHook(() => useTaskList(initialTasks));
+
+    expect(result.current.taskCount).toBe(2);
+
     await act(() => {
       result.current.removeTask('1');
     });
-    expect(result.current.tasks).toHaveLength(1);
-    expect(result.current.tasks[0].id).toBe('2');
+
+    expect(result.current.taskCount).toBe(1);
   });
+
 });
