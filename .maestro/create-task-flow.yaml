@@ -1,0 +1,43 @@
+appId: host.exp.exponent
+name: Create task flow
+
+---
+- launchApp
+
+- takeScreenshot: "01-App-Iniciada"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+- tapOn: "my-app-testing-lab"
+
+- takeScreenshot: "02-Expo-Go-Abierta"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+- tapOn: "Crear tarea"
+
+- takeScreenshot: "03-Pantalla-Crear-Tarea"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+- assertVisible: "Nueva tarea"
+
+- inputText: "Tarea Maestro"
+
+- takeScreenshot: "04-Formulario-Diligenciado"
+
+- tapOn: "Guardar"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+- assertVisible: "Tarea Maestro"
+
+- takeScreenshot: "05-Tarea-Creada"

@@ -1,0 +1,5 @@
+appId: com.unknown.myapptestinglab
+name: flow
+---
+- launchApp
+- assertVisible: "Welcome!"

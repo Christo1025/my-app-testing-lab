@@ -1,30 +1,45 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { TaskForm } from '../components/TaskForm';
 import { useCreateTask } from '../hooks/useCreateTask';
 
 export function CreateTaskScreen() {
-  const { status, submit } = useCreateTask();
+  const { status, tasks, submit } = useCreateTask();
   const insets = useSafeAreaInsets();
+  const [title, setTitle] = React.useState('');
+
+  const handleSubmit = () => {
+    if (!title.trim()) {
+      return;
+    }
+
+    void submit(title.trim());
+  };
 
   return (
     <View
-      className="flex-1 gap-4 bg-gray-50 p-4"
-      style={{ paddingTop: insets.top + 16, paddingBottom: insets.bottom + 16 }}
+      style={{ flex: 1, gap: 16, padding: 16, paddingTop: insets.top + 16, paddingBottom: insets.bottom + 16 }}
     >
-      <Text className="text-2xl font-bold text-gray-900">Nueva tarea</Text>
-      <TaskForm onSubmit={submit} />
-      {status === 'success' && (
-        <Text className="rounded-lg bg-green-100 px-4 py-3 text-sm font-medium text-green-800">
-          Tarea creada exitosamente
-        </Text>
-      )}
-      {status === 'error' && (
-        <Text className="rounded-lg bg-red-100 px-4 py-3 text-sm font-medium text-red-800">
-          Error al crear la tarea
-        </Text>
-      )}
+      <Text>Nueva tarea</Text>
+      <TextInput
+        testID="input-titulo"
+        accessibilityLabel="Titulo de la tarea"
+        accessibilityHint="Escribe el titulo para la nueva tarea"
+        placeholder="Escribe el título de la tarea"
+        value={title}
+        onChangeText={setTitle}
+      />
+      <TouchableOpacity
+        testID="save-button"
+        accessibilityRole="button"
+        accessibilityLabel="Guardar"
+        onPress={handleSubmit}
+      >
+        <Text>Guardar</Text>
+      </TouchableOpacity>
+      {status === 'success' && <Text>Tarea creada exitosamente</Text>}
+      {status === 'error' && <Text>Error al crear la tarea</Text>}
+      {tasks.length === 0 ? <Text>No hay tareas aún</Text> : tasks.map((task) => <Text key={task.id}>{task.title}</Text>)}
     </View>
   );
 }

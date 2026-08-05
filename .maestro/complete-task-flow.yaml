@@ -1,0 +1,58 @@
+appId: host.exp.exponent
+name: Complete Task Creation Flow
+
+---
+# Abrir la aplicación
+- launchApp
+- takeScreenshot: "01-App-Iniciada"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+# Seleccionar la app en Expo Go
+- tapOn: "my-app-testing-lab"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+# Verificar que estamos en Home
+- assertVisible: "Welcome!"
+- takeScreenshot: "02-Pantalla-Home"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+# Navegar a crear tarea (intentar con diferentes identificadores)
+- tapOn: "Crear tarea"
+- tapOn: "Ir a crear tarea"
+- tapOn: ".*Crear.*tarea.*"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+# Verificar que cargó la pantalla de crear tarea
+- assertVisible: "Nueva tarea"
+- takeScreenshot: "03-Pantalla-Crear-Tarea"
+
+# Ingresar el título de la tarea
+- inputText: "Tarea de prueba Maestro"
+- takeScreenshot: "04-Formulario-Diligenciado"
+
+- waitForAnimationToEnd
+
+# Guardar la tarea
+- tapOn: "Guardar"
+
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+# Verificar mensaje de éxito
+- assertVisible: "Tarea creada exitosamente"
+- takeScreenshot: "05-Tarea-Creada-Exitosamente"
+
+# Verificar que la tarea aparece en la lista
+- assertVisible: "Tarea de prueba Maestro"
+- takeScreenshot: "06-Tarea-En-Lista"

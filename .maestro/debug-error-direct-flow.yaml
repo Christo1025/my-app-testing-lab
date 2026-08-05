@@ -1,0 +1,13 @@
+appId: host.exp.exponent
+name: Debug Error Direct
+
+---
+- launchApp
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- tapOn:
+    id: "host.exp.exponent:id/view_error_log"
+    optional: true
+- waitForAnimationToEnd
+- takeScreenshot: "error-direct-state"
