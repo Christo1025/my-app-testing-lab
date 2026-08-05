@@ -1,0 +1,10 @@
+src:
+  appId: com.unknown.myapptestinglab
+  flow:
+    - launchApp
+    - assertVisible: "Welcome!"
+    - tapOn: "Crear tarea"
+    - assertVisible: "Nueva tarea"
+    - inputText: "Tarea Maestro"
+    - tapOn: "Guardar"
+    - assertVisible: "Tarea Maestro"

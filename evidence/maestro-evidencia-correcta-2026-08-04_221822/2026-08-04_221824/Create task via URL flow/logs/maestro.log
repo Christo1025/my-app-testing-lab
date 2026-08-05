@@ -1,0 +1,920 @@
+22:18:30.047 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Define variables RUNNING
+22:18:30.055 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Define variables COMPLETED
+22:18:30.056 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Apply configuration RUNNING
+22:18:30.056 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Apply configuration COMPLETED
+22:18:30.057 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Launch app "host.exp.exponent" RUNNING
+22:18:30.561 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:18:31.583 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission android.permission.WRITE_SETTINGS for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.SecurityException: Permission android.permission.WRITE_SETTINGS is managed by role
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:997)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:31.842 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission android.permission.READ_INTERNAL_STORAGE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission android.permission.READ_INTERNAL_STORAGE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:32.833 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.sec.android.provider.badge.permission.READ for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.sec.android.provider.badge.permission.READ
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:32.869 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.sec.android.provider.badge.permission.WRITE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.sec.android.provider.badge.permission.WRITE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:32.905 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.htc.launcher.permission.READ_SETTINGS for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.htc.launcher.permission.READ_SETTINGS
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:32.938 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.htc.launcher.permission.UPDATE_SHORTCUT for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.htc.launcher.permission.UPDATE_SHORTCUT
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:32.974 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.sonyericsson.home.permission.BROADCAST_BADGE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.sonyericsson.home.permission.BROADCAST_BADGE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.014 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.sonymobile.home.permission.PROVIDER_INSERT_BADGE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.sonymobile.home.permission.PROVIDER_INSERT_BADGE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.054 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.anddoes.launcher.permission.UPDATE_COUNT for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.anddoes.launcher.permission.UPDATE_COUNT
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.094 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.majeur.launcher.permission.UPDATE_BADGE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.majeur.launcher.permission.UPDATE_BADGE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.130 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.huawei.android.launcher.permission.CHANGE_BADGE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.huawei.android.launcher.permission.CHANGE_BADGE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.165 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.huawei.android.launcher.permission.READ_SETTINGS for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.huawei.android.launcher.permission.READ_SETTINGS
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.202 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.huawei.android.launcher.permission.WRITE_SETTINGS for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.huawei.android.launcher.permission.WRITE_SETTINGS
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.241 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission android.permission.READ_APP_BADGE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission android.permission.READ_APP_BADGE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.281 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.oppo.launcher.permission.READ_SETTINGS for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.oppo.launcher.permission.READ_SETTINGS
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.321 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.oppo.launcher.permission.WRITE_SETTINGS for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission com.oppo.launcher.permission.WRITE_SETTINGS
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.357 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission me.everything.badger.permission.BADGE_COUNT_READ for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission me.everything.badger.permission.BADGE_COUNT_READ
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.390 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission me.everything.badger.permission.BADGE_COUNT_WRITE for app host.exp.exponent: shell command failed (exit -1): 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission me.everything.badger.permission.BADGE_COUNT_WRITE
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:985)
+	at com.android.server.permission.access.permission.PermissionService.access$setRuntimePermissionGranted(PermissionService.kt:108)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted(PermissionService.kt:883)
+	at com.android.server.permission.access.permission.PermissionService.setRuntimePermissionGranted$default(PermissionService.kt:788)
+	at com.android.server.permission.access.permission.PermissionService.grantRuntimePermission(PermissionService.kt:750)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:599)
+	at android.permission.PermissionManager.grantRuntimePermissionInternal(PermissionManager.java:680)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:643)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2781)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:348)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6874)
+	at android.os.Binder.shellCommand(Binder.java:1162)
+	at android.os.Binder.onTransact(Binder.java:964)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4855)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6858)
+	at android.os.Binder.execTransactInternal(Binder.java:1452)
+	at android.os.Binder.execTransact(Binder.java:1376)
+
+22:18:33.394 [ INFO] maestro.Maestro.launchApp$lambda$5: Launching app host.exp.exponent
+22:18:33.395 [ INFO] maestro.Maestro.launchApp$lambda$5: Stopping host.exp.exponent app during launch
+22:18:33.613 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Launch app "host.exp.exponent" COMPLETED
+22:18:33.614 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:18:33.617 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:18:33.621 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:33.621 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:34.062 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:34.062 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:35.427 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:18:35.764 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:35.765 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:35.977 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:35.978 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:36.432 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:18:36.432 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:18:36.434 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:18:36.434 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:36.434 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:36.685 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:36.686 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:37.110 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:18:37.111 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Enter URL manually" RUNNING
+22:18:37.374 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=Enter URL manually, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[160,809][573,860], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=160, y=809, width=413, height=51))
+22:18:38.641 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+22:18:38.648 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (366, 834) using hierarchy based logic for wait
+22:18:40.430 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:18:40.540 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+22:18:40.541 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Enter URL manually" COMPLETED
+22:18:40.541 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "exp://" RUNNING
+22:18:40.688 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=exp://, accessibilityText=, hintText=exp://, ignoreBoundsFiltering=false, resource-id=, clickable=true, bounds=[93,905][1129,1030], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.EditText, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=93, y=905, width=1036, height=125))
+22:18:41.946 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+22:18:41.948 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (611, 967) using hierarchy based logic for wait
+22:18:43.683 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+22:18:43.683 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "exp://" COMPLETED
+22:18:43.684 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Erase text RUNNING
+22:18:43.688 [ INFO] maestro.Maestro.eraseText$lambda$52: Erasing 50 characters
+22:18:45.430 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:18:46.804 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Erase text COMPLETED
+22:18:46.804 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Input text exp://192.168.1.9:8081 RUNNING
+22:18:46.805 [ INFO] maestro.Maestro.inputText: Inputting text: exp://192.168.1.9:8081
+22:18:50.430 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:18:51.521 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Input text exp://192.168.1.9:8081 COMPLETED
+22:18:51.521 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Connect" RUNNING
+22:18:52.212 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=Connect, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[518,1085][702,1147], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=518, y=1085, width=184, height=62))
+22:18:54.175 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+22:18:54.177 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (610, 1116) using hierarchy based logic for wait
+22:18:55.429 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:18:55.860 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+22:18:55.861 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Connect" COMPLETED
+22:18:55.861 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:18:55.862 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:18:55.862 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:55.862 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:56.226 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:56.226 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:56.756 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:18:56.756 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:18:56.758 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:18:56.758 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:56.758 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:57.123 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:57.123 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:57.647 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:18:57.647 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:18:57.648 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:18:57.648 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:57.648 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:58.025 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:58.025 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:58.728 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:18:58.729 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:18:58.730 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:18:58.730 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:58.730 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:59.107 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:59.107 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:18:59.637 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:18:59.638 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:18:59.640 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:18:59.640 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:18:59.640 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:00.006 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:00.006 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:00.428 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:19:00.530 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:00.530 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:00.532 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:00.532 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:00.532 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:00.841 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:00.841 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:01.296 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:01.296 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:01.298 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:01.298 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:01.298 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:01.577 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:01.577 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:02.077 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:02.077 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:02.079 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:02.079 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:02.079 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:02.357 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:02.358 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:03.082 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:03.082 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:03.330 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:03.330 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:03.760 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:03.760 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:03.760 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:03.760 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:03.761 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:04.010 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:04.010 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:04.427 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:04.428 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:04.428 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:04.428 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:04.428 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:04.660 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:04.660 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:05.081 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:05.082 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:05.083 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:05.083 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:05.083 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:05.337 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:05.337 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:05.430 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:19:05.785 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:05.785 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:05.786 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:05.786 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:05.786 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:06.035 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:06.035 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:06.464 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:06.464 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:06.466 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:06.466 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:06.466 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:06.722 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:06.722 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:07.134 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:07.134 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:07.135 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:07.135 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:07.135 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:07.378 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:07.378 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:07.811 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:07.811 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:07.812 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:07.812 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:07.812 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:08.066 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:08.066 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:08.502 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:08.503 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:08.504 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:08.504 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:08.504 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:08.750 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:08.750 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:09.184 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:09.185 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:09.186 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:09.186 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:09.186 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:09.435 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:09.435 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:09.864 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:09.864 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:09.865 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:09.865 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:09.865 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:10.108 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:10.108 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:10.429 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:19:10.544 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:10.544 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot 01-App-Cargada-Desde-URL RUNNING
+22:19:10.548 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+22:19:10.550 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:10.766 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot 01-App-Cargada-Desde-URL COMPLETED
+22:19:10.766 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Crear tarea" RUNNING
+22:19:11.041 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=Crear tarea, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[488,1277][731,1337], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=488, y=1277, width=243, height=60))
+22:19:12.492 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+22:19:12.494 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (609, 1307) using hierarchy based logic for wait
+22:19:14.135 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+22:19:14.135 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Crear tarea" COMPLETED
+22:19:14.135 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:14.136 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:14.136 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:14.136 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:14.405 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:14.405 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:14.829 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:14.829 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:14.831 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:14.831 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:14.831 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:15.111 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:15.111 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:15.429 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:19:15.563 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:15.564 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Nueva tarea" is visible RUNNING
+22:19:15.798 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Nueva tarea" is visible COMPLETED
+22:19:15.798 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot 02-Pantalla-Crear-Tarea RUNNING
+22:19:15.801 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+22:19:15.802 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:16.036 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot 02-Pantalla-Crear-Tarea COMPLETED
+22:19:16.036 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Input text Tarea Maestro URL RUNNING
+22:19:16.037 [ INFO] maestro.Maestro.inputText: Inputting text: Tarea Maestro URL
+22:19:20.428 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:19:21.110 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Input text Tarea Maestro URL COMPLETED
+22:19:21.110 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot 03-Formulario-Diligenciado RUNNING
+22:19:21.112 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+22:19:21.114 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:21.388 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot 03-Formulario-Diligenciado COMPLETED
+22:19:21.388 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Guardar" RUNNING
+22:19:22.223 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=Guardar, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=false, bounds=[45,715][1175,769], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.TextView, important-for-accessibility=true, error=}, children=[], clickable=false, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=45, y=715, width=1130, height=54))
+22:19:24.226 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+22:19:24.228 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (610, 742) using hierarchy based logic for wait
+22:19:25.428 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:19:26.810 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+22:19:26.810 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Guardar" COMPLETED
+22:19:26.811 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:26.812 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:26.812 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:26.812 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:27.171 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:27.171 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:27.772 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:27.772 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:28.070 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:28.070 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:28.648 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:28.648 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:28.943 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:28.943 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:29.401 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:29.401 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Wait for animation to end RUNNING
+22:19:29.404 [ INFO] maestro.Maestro.waitForAnimationToEnd$lambda$53: Waiting for animation to end with timeout 15000
+22:19:29.404 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:29.404 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:29.700 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:29.700 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:30.291 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:30.291 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:30.429 [ERROR] maestro.cli.session.MaestroSessionManager.newSession$lambda$0: Failed to record heartbeat
+java.io.IOException: El proceso no tiene acceso al archivo porque otro proceso tiene bloqueada una parte del archivo
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:336)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeTextImpl(FileReadWrite.kt:160)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText(FileReadWrite.kt:145)
+	at kotlin.io.FilesKt__FileReadWriteKt.writeText$default(FileReadWrite.kt:144)
+	at maestro.cli.db.KeyValueStore.commit(KeyValueStore.kt:50)
+	at maestro.cli.db.KeyValueStore.set$lambda$3$lambda$2(KeyValueStore.kt:23)
+	at maestro.cli.db.KeyValueStore.withFileLock(KeyValueStore.kt:62)
+	at maestro.cli.db.KeyValueStore.set(KeyValueStore.kt:20)
+	at maestro.cli.session.SessionStore.heartbeat(SessionStore.kt:12)
+	at maestro.cli.session.MaestroSessionManager.newSession$lambda$0(MaestroSessionManager.kt:98)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+22:19:30.572 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:30.572 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:31.155 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:31.156 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:31.439 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+22:19:31.439 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:31.924 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Wait for animation to end COMPLETED
+22:19:31.924 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Tarea Maestro URL" is visible RUNNING
+22:19:32.722 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Tarea Maestro URL" is visible COMPLETED
+22:19:32.722 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot 04-Tarea-Creada RUNNING
+22:19:32.723 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+22:19:32.725 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+22:19:33.025 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot 04-Tarea-Creada COMPLETED

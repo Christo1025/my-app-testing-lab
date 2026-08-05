@@ -1,0 +1,55 @@
+appId: host.exp.exponent
+name: Create task via URL flow
+
+---
+# 1) Abrir Expo Go y conectar explícitamente al servidor local del proyecto.
+- launchApp
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+- tapOn: "Enter URL manually"
+- tapOn: "exp://"
+- eraseText
+- inputText: "exp://192.168.1.9:8081"
+- tapOn: "Connect"
+
+# 2) Esperar carga completa del bundle para evitar flakiness en dispositivos lentos.
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+# 3) Evidencia de estado inicial de la app ya cargada.
+- takeScreenshot: "01-App-Cargada-Desde-URL"
+
+# 4) Flujo E2E principal: navegar, crear tarea y verificar resultado en UI.
+- tapOn: "Crear tarea"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+- assertVisible: "Nueva tarea"
+- takeScreenshot: "02-Pantalla-Crear-Tarea"
+
+- inputText: "Tarea Maestro URL"
+- takeScreenshot: "03-Formulario-Diligenciado"
+
+- tapOn: "Guardar"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+
+- assertVisible: "Tarea Maestro URL"
+- takeScreenshot: "04-Tarea-Creada"

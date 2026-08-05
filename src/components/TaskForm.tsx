@@ -28,10 +28,7 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
         onChangeText={setTitle}
       />
 
-      <Button
-        title="Guardar"
-        onPress={handleSubmit}
-      />
+      <Button title="Guardar" onPress={handleSubmit} />
 
       {!title.trim() && (
         <Text testID="error-message">

@@ -1,0 +1,15 @@
+appId: host.exp.exponent
+name: Debug Open Project Error Log
+
+---
+- launchApp
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- tapOn: "my-app-testing-lab"
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- waitForAnimationToEnd
+- tapOn:
+    id: "host.exp.exponent:id/view_error_log"
+    optional: true
+- takeScreenshot: "after-open-project"
