@@ -30,12 +30,20 @@ jobs:
         run: npm run lint
 
       - name: Run tests with coverage threshold
-        run: npm run test:ci
+        shell: cmd
+        run: npm run test:ci > test-output.log 2>&1
+
+      - name: Print test output
+        if: always()
+        shell: cmd
+        run: type test-output.log
 
       - name: Upload coverage report
         if: always()
         uses: actions/upload-artifact@v5
         with:
           name: coverage-report
-          path: coverage/
+          path: |
+            coverage/
+            test-output.log
           if-no-files-found: error
