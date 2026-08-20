@@ -30,22 +30,24 @@ jobs:
         run: npm run lint
 
       - name: Run tests with coverage threshold
-        shell: cmd
+        continue-on-error: true
+        shell: pwsh
         run: |
-          npm run test:ci > test-output.log 2>&1
-          echo %ERRORLEVEL%> test-exit-code.txt
-          exit /b 0
+          npm run test:ci *> test-output.log
+          $exitCode = $LASTEXITCODE
+          Set-Content -Path test-exit-code.txt -Value $exitCode
+          exit 0
 
       - name: Print test output
         if: always()
-        shell: cmd
-        run: type test-output.log
+        shell: pwsh
+        run: Get-Content test-output.log
 
       - name: Verify test result
-        shell: cmd
+        shell: pwsh
         run: |
-          set /p TEST_EXIT_CODE=<test-exit-code.txt
-          if not "%TEST_EXIT_CODE%"=="0" exit /b %TEST_EXIT_CODE%
+          $testExitCode = [int](Get-Content test-exit-code.txt)
+          if ($testExitCode -ne 0) { exit $testExitCode }
 
       - name: Upload coverage report
         if: always()
