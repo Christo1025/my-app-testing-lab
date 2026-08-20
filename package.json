@@ -10,7 +10,7 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "test": "jest",
-    "test:ci": "jest --coverage --runInBand"
+    "test:ci": "jest --coverage --runInBand --silent"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

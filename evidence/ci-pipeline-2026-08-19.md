@@ -31,7 +31,7 @@ npm run test:ci
 que equivale a:
 
 ```powershell
-jest --coverage --runInBand
+jest --coverage --runInBand --silent
 ```
 
 El umbral minimo esta configurado en `jest.config.js`:

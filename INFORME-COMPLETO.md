@@ -133,7 +133,7 @@ Se creó el workflow `.github/workflows/tests.yml` para ejecutar automáticament
 - Instalación con `npm ci`.
 - Lint con `npm run lint`.
 - Suite completa con `npm run test:ci`.
-- Cobertura con `jest --coverage --runInBand`.
+- Cobertura con `jest --coverage --runInBand --silent`.
 - Artifact de cobertura `coverage-report` generado desde el directorio `coverage/`.
 - Umbral global del 70% en `jest.config.js` para branches, functions, lines y statements.
 
