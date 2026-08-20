@@ -14,11 +14,11 @@ El workflow se ejecuta automaticamente en:
 Pasos configurados:
 
 1. Checkout del repositorio.
-2. Setup de Node.js `24.x`, alineado con el entorno local validado.
+2. Setup de Node.js `20.19.x`, version compatible con Expo SDK 54.
 3. Instalacion reproducible con `npm ci`.
 4. Ejecucion de lint con `npm run lint`.
 5. Ejecucion de suite completa con cobertura usando `npm run test:ci`.
-6. Verificacion explicita con `scripts/verify-ci.js` usando `jest-results.json` y `coverage/coverage-summary.json` contra el umbral global del 70%.
+6. Verificacion del umbral global del 70% configurada directamente en `jest.config.js`.
 7. Publicacion del directorio `coverage/` como artifact `coverage-report`.
 
 ## Cobertura y umbral

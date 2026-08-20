@@ -11,16 +11,16 @@ on:
 jobs:
   test:
     name: Unit, component and integration tests
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
-          node-version: '24.x'
+          node-version: '20.19.x'
           cache: npm
 
       - name: Install dependencies
@@ -30,30 +30,12 @@ jobs:
         run: npm run lint
 
       - name: Run tests with coverage threshold
-        continue-on-error: true
-        shell: pwsh
-        run: |
-          npm run test:ci *> test-output.log
-          $exitCode = $LASTEXITCODE
-          Set-Content -Path test-exit-code.txt -Value $exitCode
-          exit 0
-
-      - name: Print test output
-        if: always()
-        shell: pwsh
-        run: Get-Content test-output.log
-
-      - name: Verify test result
-        run: node scripts/verify-ci.js
+        run: npm run test:ci
 
       - name: Upload coverage report
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: |
-            coverage/
-            test-output.log
-            test-exit-code.txt
-            jest-results.json
+          path: coverage/
           if-no-files-found: error
