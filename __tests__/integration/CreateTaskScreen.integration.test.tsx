@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react-native';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react-native';
 import { http, HttpResponse } from 'msw';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -13,15 +13,17 @@ const metrics = {
 };
 
 const renderScreen = async () => {
-  render(
+  const view = await render(
     <SafeAreaProvider initialMetrics={metrics}>
       <CreateTaskScreen />
     </SafeAreaProvider>
   );
 
   await waitFor(() => {
-    expect(screen.getByTestId('input-titulo')).toBeTruthy();
+    expect(view.getByTestId('input-titulo')).toBeTruthy();
   });
+
+  return view;
 };
 
 afterEach(() => {
@@ -43,21 +45,21 @@ describe('CreateTaskScreen - Integración', () => {
       http.get('https://api.taskmanager.com/tasks', () => HttpResponse.json([]))
     );
 
-    await renderScreen();
+    const view = await renderScreen();
 
-    fireEvent.changeText(screen.getByTestId('input-titulo'), 'Comprar pan');
-
-    await waitFor(() => {
-      expect(screen.getByTestId('input-titulo').props.value).toBe('Comprar pan');
-    });
-
-    fireEvent.press(screen.getByTestId('save-button'));
+    fireEvent.changeText(view.getByTestId('input-titulo'), 'Comprar pan');
 
     await waitFor(() => {
-      expect(screen.getByText('Tarea creada exitosamente')).toBeTruthy();
+      expect(view.getByTestId('input-titulo').props.value).toBe('Comprar pan');
     });
 
-    expect(await screen.findByText('Comprar pan')).toBeTruthy();
+    fireEvent.press(view.getByTestId('save-button'));
+
+    await waitFor(() => {
+      expect(view.getByText('Tarea creada exitosamente')).toBeTruthy();
+    });
+
+    expect(await view.findByText('Comprar pan')).toBeTruthy();
   });
 
   it('muestra un mensaje de error cuando la API devuelve un error HTTP 500', async () => {
@@ -69,25 +71,25 @@ describe('CreateTaskScreen - Integración', () => {
       http.get('https://api.taskmanager.com/tasks', () => HttpResponse.json([]))
     );
 
-    await renderScreen();
+    const view = await renderScreen();
 
-    fireEvent.changeText(screen.getByTestId('input-titulo'), 'Revisar el servidor');
+    fireEvent.changeText(view.getByTestId('input-titulo'), 'Revisar el servidor');
 
     await waitFor(() => {
-      expect(screen.getByTestId('input-titulo').props.value).toBe('Revisar el servidor');
+      expect(view.getByTestId('input-titulo').props.value).toBe('Revisar el servidor');
     });
 
-    fireEvent.press(screen.getByTestId('save-button'));
+    fireEvent.press(view.getByTestId('save-button'));
 
-    expect(await screen.findByText('Error al crear la tarea')).toBeTruthy();
+    expect(await view.findByText('Error al crear la tarea')).toBeTruthy();
   });
 
   it('muestra el estado vacío cuando la API devuelve una lista vacía', async () => {
     // Mock de datos vacíos para verificar el mensaje de estado vacío en la pantalla.
     server.use(http.get('https://api.taskmanager.com/tasks', () => HttpResponse.json([])));
 
-    await renderScreen();
+    const view = await renderScreen();
 
-    expect(await screen.findByText('No hay tareas aún')).toBeTruthy();
+    expect(await view.findByText('No hay tareas aún')).toBeTruthy();
   });
 });
