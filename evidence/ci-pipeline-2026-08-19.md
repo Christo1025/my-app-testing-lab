@@ -32,7 +32,7 @@ npm run test:ci
 que equivale a:
 
 ```powershell
-jest --coverage --runInBand --silent
+jest --coverage --runInBand --silent --json --outputFile=jest-results.json
 ```
 
 El umbral minimo esta configurado en `jest.config.js`:

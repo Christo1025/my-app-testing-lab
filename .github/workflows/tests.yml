@@ -46,9 +46,10 @@ jobs:
       - name: Verify test result
         shell: pwsh
         run: |
-          $testOutput = Get-Content test-output.log -Raw
-          if ($testOutput -notmatch 'Test Suites:\s+\d+ passed,\s+\d+ total') { exit 1 }
-          if ($testOutput -notmatch 'Tests:\s+\d+ passed,\s+\d+ total') { exit 1 }
+          if (-not (Test-Path jest-results.json)) { exit 1 }
+          $results = Get-Content jest-results.json -Raw | ConvertFrom-Json
+          if ($results.numFailedTestSuites -ne 0) { exit 1 }
+          if ($results.numFailedTests -ne 0) { exit 1 }
 
           $coverage = Get-Content coverage/coverage-summary.json -Raw | ConvertFrom-Json
           $threshold = 70
@@ -77,4 +78,5 @@ jobs:
             coverage/
             test-output.log
             test-exit-code.txt
+            jest-results.json
           if-no-files-found: error
