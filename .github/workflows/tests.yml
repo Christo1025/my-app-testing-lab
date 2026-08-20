@@ -44,30 +44,7 @@ jobs:
         run: Get-Content test-output.log
 
       - name: Verify test result
-        shell: pwsh
-        run: |
-          if (-not (Test-Path jest-results.json)) { exit 1 }
-          $results = Get-Content jest-results.json -Raw | ConvertFrom-Json
-          if ($results.numFailedTestSuites -ne 0) { exit 1 }
-          if ($results.numFailedTests -ne 0) { exit 1 }
-
-          $coverage = Get-Content coverage/coverage-summary.json -Raw | ConvertFrom-Json
-          $threshold = 70
-          $metrics = @{
-            statements = [double]$coverage.total.statements.pct
-            branches = [double]$coverage.total.branches.pct
-            functions = [double]$coverage.total.functions.pct
-            lines = [double]$coverage.total.lines.pct
-          }
-
-          foreach ($metric in $metrics.GetEnumerator()) {
-            if ($metric.Value -lt $threshold) {
-              Write-Error "$($metric.Key) coverage $($metric.Value)% is below $threshold%"
-              exit 1
-            }
-          }
-
-          Write-Output "All tests passed and coverage is above $threshold%."
+        run: node scripts/verify-ci.js
 
       - name: Upload coverage report
         if: always()

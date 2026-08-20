@@ -134,7 +134,7 @@ Se creó el workflow `.github/workflows/tests.yml` para ejecutar automáticament
 - Lint con `npm run lint`.
 - Suite completa con `npm run test:ci`.
 - Cobertura con `jest --coverage --runInBand --silent --json --outputFile=jest-results.json`.
-- Verificación explícita del resumen `coverage/coverage-summary.json` contra el umbral global del 70%.
+- Verificación explícita con `scripts/verify-ci.js` usando `jest-results.json` y `coverage/coverage-summary.json` contra el umbral global del 70%.
 - Artifact de cobertura `coverage-report` generado desde el directorio `coverage/`.
 - Umbral global del 70% en `jest.config.js` para branches, functions, lines y statements.
 

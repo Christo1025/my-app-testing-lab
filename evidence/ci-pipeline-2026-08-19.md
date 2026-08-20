@@ -18,7 +18,7 @@ Pasos configurados:
 3. Instalacion reproducible con `npm ci`.
 4. Ejecucion de lint con `npm run lint`.
 5. Ejecucion de suite completa con cobertura usando `npm run test:ci`.
-6. Verificacion explicita de `coverage/coverage-summary.json` contra el umbral global del 70%.
+6. Verificacion explicita con `scripts/verify-ci.js` usando `jest-results.json` y `coverage/coverage-summary.json` contra el umbral global del 70%.
 7. Publicacion del directorio `coverage/` como artifact `coverage-report`.
 
 ## Cobertura y umbral
