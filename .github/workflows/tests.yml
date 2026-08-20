@@ -31,12 +31,21 @@ jobs:
 
       - name: Run tests with coverage threshold
         shell: cmd
-        run: npm run test:ci > test-output.log 2>&1
+        run: |
+          npm run test:ci > test-output.log 2>&1
+          echo %ERRORLEVEL%> test-exit-code.txt
+          exit /b 0
 
       - name: Print test output
         if: always()
         shell: cmd
         run: type test-output.log
+
+      - name: Verify test result
+        shell: cmd
+        run: |
+          set /p TEST_EXIT_CODE=<test-exit-code.txt
+          if not "%TEST_EXIT_CODE%"=="0" exit /b %TEST_EXIT_CODE%
 
       - name: Upload coverage report
         if: always()
@@ -46,4 +55,5 @@ jobs:
           path: |
             coverage/
             test-output.log
+            test-exit-code.txt
           if-no-files-found: error
