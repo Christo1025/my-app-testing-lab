@@ -129,7 +129,7 @@ Se creó el workflow `.github/workflows/tests.yml` para ejecutar automáticament
 
 **Configuración aplicada:**
 
-- Node.js `20.19.x`, compatible con Expo SDK 54.
+- Node.js `24.x`, alineado con el entorno local validado.
 - Instalación con `npm ci`.
 - Lint con `npm run lint`.
 - Suite completa con `npm run test:ci`.

@@ -14,7 +14,7 @@ El workflow se ejecuta automaticamente en:
 Pasos configurados:
 
 1. Checkout del repositorio.
-2. Setup de Node.js `20.19.x`, version compatible con Expo SDK 54.
+2. Setup de Node.js `24.x`, alineado con el entorno local validado.
 3. Instalacion reproducible con `npm ci`.
 4. Ejecucion de lint con `npm run lint`.
 5. Ejecucion de suite completa con cobertura usando `npm run test:ci`.
